@@ -17,21 +17,23 @@ const InsuranceForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
+  
     if (!formData.name || !formData.surname || !formData.insuranceType) {
       alert('Please fill data');
       return;
     }
-
+  
     try {
-      await submitInsuranceData(formData);
+      const response = await submitInsuranceData(formData);
+      console.log('Response:', response); // เพิ่ม log เพื่อดูการตอบกลับ
       alert('Complete!');
       setFormData({ name: '', surname: '', insuranceType: '' });
     } catch (error) {
-      console.error(error);
-      alert('Faild!');
+      console.error('Error details:', error); // เพิ่ม log เพื่อดู error ที่เกิดขึ้น
+      alert(`Failed: ${error.message}`);
     }
   };
-
+  
   return (
     <div className="form-container">
       <h2>Insurance Form</h2>
