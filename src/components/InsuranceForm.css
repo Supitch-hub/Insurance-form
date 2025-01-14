@@ -1,70 +1,111 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .form-container {
-    width: 100%;
-    max-width: 400px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    text-align: center;
-    color: #007acc;
-    margin-bottom: 20px;
-  }
-  h5 {
-    text-align:center;
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f8ff;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-  .form-group {
-    margin-bottom: 15px;
-    padding-right: 20px;
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  color: #007acc;
+  margin-bottom: 20px;
+  font-size: clamp(20px, 5vw, 24px);
+}
+
+h5 {
+  text-align: center;
+  font-size: clamp(14px, 4vw, 16px);
+}
+
+.form-group {
+  margin-bottom: 15px;
+  padding-right: 0;
+  width: 100%;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333333;
+  font-size: clamp(14px, 4vw, 16px);
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus {
+  border-color: #007acc;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #007acc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.submit-button:hover, .submit-button:active {
+  background-color: #005f99;
+}
+
+/* สำหรับอุปกรณ์มือถือ */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
   }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333333;
+
+  .form-container {
+    padding: 15px;
   }
-  
-  input, select {
-    width: 100%;
+
+  input, select, .submit-button {
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s ease;
   }
-  
-  input:focus, select:focus {
-    border-color: #007acc;
+}
+
+/* ป้องกันการซูมบนมือถือเมื่อกดฟอร์ม */
+@media screen and (max-width: 768px) {
+  input, select {
+    font-size: 16px !important;
   }
-  
-  .submit-button {
-    width: 100%;
-    padding: 10px;
-    font-size: 18px;
-    color: #ffffff;
-    background-color: #007acc;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+}
+
+/* สำหรับ Safari บน iOS */
+@supports (-webkit-touch-callout: none) {
+  input, select {
+    font-size: 16px !important;
   }
-  
-  .submit-button:hover {
-    background-color: #005f99;
-  }
-  
+}

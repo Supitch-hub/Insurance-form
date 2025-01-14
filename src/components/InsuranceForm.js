@@ -16,6 +16,7 @@ const InsuranceForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (!formData.name || !formData.surname || !formData.insuranceType) {
       alert('Please fill data');
       return;
